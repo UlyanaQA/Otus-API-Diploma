@@ -10,13 +10,13 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'source /var/jenkins_home/venv/bin/activate && pip install -r requirements.txt'
+                sh '. /var/jenkins_home/venv/bin/activate && pip install -r requirements.txt'
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'source /var/jenkins_home/venv/bin/activate && python3 -m pytest test_jsonplaceholder_api.py -v --alluredir=./allure-results'
+                sh '. /var/jenkins_home/venv/bin/activate && python3 -m pytest test_jsonplaceholder_api.py -v --alluredir=./allure-results'
             }
         }
 
