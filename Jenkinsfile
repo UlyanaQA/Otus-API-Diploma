@@ -22,6 +22,7 @@ pipeline {
 
         stage('Publish Allure Report') {
             steps {
+                sh '/usr/local/bin/allure generate ./allure-results --clean -o ./allure-report'
                 allure([
                     includeProperties: false,
                     jdk: 'JDK',
